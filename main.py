@@ -1,7 +1,5 @@
 import click
 import tSheet
-import project
-
 
 def main():
     print("DO SOMETHING HERE")
