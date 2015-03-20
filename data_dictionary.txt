@@ -1,0 +1,25 @@
+projects
+----------
+id SERIAL,
+name varchar(64) not null,
+owner varchar(64) not null,
+pay money
+
+tSheets
+----------
+id SERIAL,
+owner varchar(64),
+startDate date,
+endDate date,
+project varchar(64),
+projectId int not null)
+
+
+workSession
+----------
+id SERIAL,
+date date not null,
+hours float8 not null,
+startTime time not null,
+endTime time not null,
+tSheetId int not null
