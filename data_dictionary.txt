@@ -11,7 +11,6 @@ id SERIAL,
 owner varchar(64),
 startDate date,
 endDate date,
-project varchar(64),
 projectId int not null)
 
 

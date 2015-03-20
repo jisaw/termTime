@@ -1,6 +1,5 @@
 import psycopg2
 
-
 class db_wrangler(object):
     def __init__(self, dbname="", user=""):
         self.dbname = dbname
@@ -51,3 +50,18 @@ class db_wrangler(object):
         for i in self.get_workSessions():
             print("id: %s\ndate: %s\nhours: %s\nstartTime: %s\nendTime: %s\ntSheetId: %s" % (i[0], i[1], i[2], i[3], i[4], i[5]))
             print("*" * 10)
+
+    def insert_project(self, name, owner, pay):
+        self.cur.execute(
+            "INSERT INTO projects (name, owner, pay) VALUES (%s, %s, %s)" %(name, owner, pay)
+        )
+
+    def insert_tSheet(self, owner, startDate, endDate, projectId):
+        self.cur.execute(
+            "INSERT INTO tSheets (owner, startDate, endDate, projectId) VALUES (%s, %s, %s, %s)" % (owner, startDate, endDate, projectId)
+        )
+
+    def insert_workSession(self, date, hours, startTime, endTime, tSheetId):
+        self.cur.execute(
+            "INSERT INTO workSessions (date, hours, startTime, endTime, tSheetId) VALUES (%s, %s, %s, %s, %s)" % (date, hours, startTime, endTime, tSheetId)
+        )
